@@ -1,12 +1,7 @@
-from typing import List
-import uuid
 from fastapi import FastAPI
-import fastapi_users
-from pydantic import BaseModel, Field
-from auth.auth import auth_backend
-from auth.database import User
-from auth.manager import get_user_manager
-from auth.schemas import UserCreate, UserRead
+
+from src.auth.base_config import auth_backend, fastapi_users
+from src.auth.schemas import UserRead, UserCreate
 
 app = FastAPI(
     title="Secret Santa"
@@ -44,10 +39,10 @@ app = FastAPI(
 #     return list(uusers[user_id]["gifts"])
 
 
-fastapi_users = fastapi_users.FastAPIUsers[User, int](
-    get_user_manager,
-    [auth_backend],
-)
+# fastapi_users = fastapi_users.FastAPIUsers[User, int](
+#     get_user_manager,
+#     [auth_backend],
+# )
 
 
 
