@@ -3,6 +3,9 @@ from fastapi import FastAPI
 from src.auth.base_config import auth_backend, fastapi_users
 from src.auth.schemas import UserRead, UserCreate
 
+from src.gifts.router import router as router_gift
+
+
 app = FastAPI(
     title="Secret Santa"
 )
@@ -60,3 +63,5 @@ app.include_router(
     prefix="/auth",
     tags=["auth"],
 )
+
+app.include_router(router_gift)
