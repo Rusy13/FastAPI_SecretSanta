@@ -3,3 +3,5 @@ venv/
 
 # Игнорирование каталога __pycache__
 __pycache__/
+
+.env

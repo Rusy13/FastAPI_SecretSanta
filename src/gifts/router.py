@@ -5,6 +5,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from src.database import get_async_session
 from src.gifts.models import gift
 from src.gifts.schemas import GiftCreate
+from fastapi_cache.decorator import cache
+import time
+
 
 router = APIRouter(
     prefix="/gifts",
@@ -12,6 +15,14 @@ router = APIRouter(
 )
 
 
+
+
+
+@router.get("/long_operation")
+@cache(expire=30)
+def get_long_op():
+    time.sleep(2)
+    return "Вычисление данных"
 
 
 # @router.get("/")
@@ -34,6 +45,9 @@ async def get_specific_operations(user_id: int, session: AsyncSession = Depends(
     ans = [item["name"] for item in gift_data]
 
     return ans
+
+
+
 
 
 
