@@ -1,6 +1,6 @@
 from fastapi_users import FastAPIUsers
-from fastapi_users.authentication import CookieTransport, AuthenticationBackend
-from fastapi_users.authentication import JWTStrategy
+from fastapi_users.authentication import (AuthenticationBackend,
+                                          CookieTransport, JWTStrategy)
 
 from src.auth.manager import get_user_manager
 from src.auth.models import User
