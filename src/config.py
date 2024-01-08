@@ -15,6 +15,10 @@ DBT_NAME = os.environ.get("DBT_NAME")
 DBT_USER = os.environ.get("DBT_USER")
 DBT_PASS = os.environ.get("DBT_PASS")
 
+
+REDIS_HOST = os.environ.get("REDIS_HOST")
+REDIS_PORT = os.environ.get("REDIS_PORT")
+
 # SECRET_AUTH = os.environ.get("SECRET_AUTH")
 SECRET_AUTH = "my_secret_key"
 
